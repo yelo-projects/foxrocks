@@ -19,6 +19,12 @@
       $('.main-input').addClass('error');
       return;
     }
+    var desc = form.find('.url-desc').val();
+    if(!desc){
+      $('.ajax').hide().html('<div class="alert alert-danger">'+lang.error_description+'</div>').fadeIn('slow');
+      $('.main-input').addClass('error');
+      return; 
+    }
     var lang_shorn=form.find('#shortenurl').text();   
     $.ajax({
       type: "POST",

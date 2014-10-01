@@ -48,7 +48,7 @@
             <p><?php echo e('This can be used to identify URLs on your account.')?></p>                  
             <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
-              <input type="text" class="form-control" name="description" placeholder="<?php echo e("Type your description here")?>">
+              <input type="text" class="form-control url-desc" name="description" placeholder="<?php echo e("Type your description here")?>">
             </div>                  
           </div>
         </div>

@@ -56,6 +56,7 @@
       "copied" => e("Copied"),
       "geo"=>e("Geotargeting data for"),
       "error"=>e('Please enter a valid URL.'),
+      "error_description"=>e('Please enter a description.'),
       "success"=>e('URL has been successfully shortened. Click Copy or CRTL+C to Copy it.'),
       "stats"=>e('You can access the statistic page via this link'),
       "copy"=>e('Copied to clipboard.'),
