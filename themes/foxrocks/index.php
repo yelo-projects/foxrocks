@@ -9,7 +9,7 @@
             <span class="description"><?php echo $this->config["description"] ?></span>
           </h1>
         </div>
-        <?php echo $this->shortener(array("multiple"=>FALSE)) ?>
+        <?php echo $this->shortener(array('autohide'=>FALSE,'advanced'=>TRUE,'multiple'=>FALSE)) ?>
         <br>
       </div>
     </div>

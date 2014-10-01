@@ -26,43 +26,54 @@
     <?php endif; ?>
   </div>
   <!-- /.main-form -->
-  <div class="main-options clearfix">
-    <?php if($option["advanced"]): ?>
-      <a href="#" class="btn btn-primary advanced"><?php echo e("Advanced Options")?></a>
-    <?php endif; ?>
-    <?php echo $this->shortener_option() ?>
-  </div><!-- /.main-options -->
+  <?php $_shortener_option = $this->shortener_option(); ?>
+  <?php if(($option["advanced"] && $option["autohide"]) || $_shortener_option):?>
+    <div class="main-options clearfix">
+      <?php if($option["advanced"] && $option["autohide"]): ?>
+        <a href="#" class="btn btn-primary advanced"><?php echo e("Advanced Options")?></a>
+      <?php endif; ?>
+      <?php echo $_shortener_option; ?>
+    </div><!-- /.main-options -->
+  <?php endif; ?>
   <div id="captcha" style="display:none">
     <?php echo Main::captcha() ?>
   </div>
   <?php if($option["advanced"]): ?>    
     <div class="main-advanced<?php if($option["autohide"]) echo " slideup" ?>">
       <div class="row">
-        <div class="col-md-4">
-          <h3><?php echo e("Custom Alias")?></h3>
-          <p><?php echo e('If you need a custom alias, you can enter it below.')?></p>
-          <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-            <input type="text" class="form-control" name="custom" placeholder="<?php echo e("Type your custom alias here")?>" >
+        <!-- /.col-md-4 -->
+        <div class="col-md-12">
+          <div class="form-group">
+            <h3><?php echo e("Description")?></h3>
+            <p><?php echo e('This can be used to identify URLs on your account.')?></p>                  
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
+              <input type="text" class="form-control" name="description" placeholder="<?php echo e("Type your description here")?>">
+            </div>                  
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+           <div class="form-group">
+            <h3><?php echo e("Custom Alias")?></h3>
+            <p><?php echo e('If you need a custom alias, you can enter it below.')?></p>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+              <input type="text" class="form-control" name="custom" placeholder="<?php echo e("Type your custom alias here")?>" >
+            </div>
           </div>                  
         </div>
         <!-- /.col-md-4 -->
-        <div class="col-md-4">
-          <h3><?php echo e("Password Protect")?></h3>
-          <p><?php echo e('By adding a password, you can restrict the access of statistics.')?></p>                  
-          <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-            <input type="text" class="form-control" name="password" id="pass" placeholder="<?php echo e("Type your password here")?>">
-          </div>                  
-        </div>
-        <!-- /.col-md-4 -->
-        <div class="col-md-4">
-          <h3><?php echo e("Description")?></h3>
-          <p><?php echo e('This can be used to identify URLs on your account.')?></p>                  
-          <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
-            <input type="text" class="form-control" name="description" placeholder="<?php echo e("Type your description here")?>">
-          </div>                  
+        <div class="col-md-6">
+           <div class="form-group">
+            <h3><?php echo e("Password Protect")?></h3>
+            <p><?php echo e('By adding a password, you can restrict the access of statistics.')?></p>                  
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+              <input type="text" class="form-control" name="password" id="pass" placeholder="<?php echo e("Type your password here")?>">
+            </div>                  
+          </div>
         </div>
         <!-- /.col-md-4 -->
       </div><!--/.row -->

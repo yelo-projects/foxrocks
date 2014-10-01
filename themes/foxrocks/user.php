@@ -3,7 +3,7 @@
   <div id="user-content" class="col-md-8">  	
 		<?php echo Main::message() ?>  	
   	<!-- Shortener Form -->
-  	<?php $this->shortener() ?>
+  	<?php echo $this->shortener(array('autohide'=>FALSE,'advanced'=>TRUE,'multiple'=>FALSE)) ?>
 
   	<?php echo $this->ads(728) ?>
 		<div class="main-content panel panel-default">
