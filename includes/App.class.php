@@ -330,6 +330,7 @@ class App{
     }   
     if($this->page > 1 && $this->page > $max) Main::redirect("user",array("danger","No URLs found."));
     $pagination = Main::pagination($max,$this->page,Main::href("user?filter={$order[2]}&amp;page=%d"));
+		$is_pro = true;//$this->pro();
 
     // Show Template		
 		$this->isUser=TRUE;

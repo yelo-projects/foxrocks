@@ -1,9 +1,9 @@
 <?php defined("APP") or die() // Main User Page ?>
 <div class="row">	
   <div id="user-content" class="col-md-8">  	
-		<?php echo Main::message() ?>  	
+	<?php echo Main::message() ?> 
   	<!-- Shortener Form -->
-  	<?php echo $this->shortener(array('autohide'=>FALSE,'advanced'=>TRUE,'multiple'=>FALSE)) ?>
+  	<?php echo $this->shortener(array('autohide'=>FALSE,'advanced'=>TRUE,'multiple'=>FALSE,'pro'=>$is_pro)) ?>
 
   	<?php echo $this->ads(728) ?>
 		<div class="main-content panel panel-default">

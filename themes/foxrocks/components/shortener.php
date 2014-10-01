@@ -27,7 +27,7 @@
   </div>
   <!-- /.main-form -->
   <?php $_shortener_option = $this->shortener_option(); ?>
-  <?php if(($option["advanced"] && $option["autohide"]) || $_shortener_option):?>
+  <?php if((($option["advanced"] && $option["autohide"]) || $_shortener_option) && $option["pro"]):?>
     <div class="main-options clearfix">
       <?php if($option["advanced"] && $option["autohide"]): ?>
         <a href="#" class="btn btn-primary advanced"><?php echo e("Advanced Options")?></a>
@@ -38,7 +38,7 @@
   <div id="captcha" style="display:none">
     <?php echo Main::captcha() ?>
   </div>
-  <?php if($option["advanced"]): ?>    
+  <?php if($option["advanced"] && $option["pro"]): ?>    
     <div class="main-advanced<?php if($option["autohide"]) echo " slideup" ?>">
       <div class="row">
         <!-- /.col-md-4 -->

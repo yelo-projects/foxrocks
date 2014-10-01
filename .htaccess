@@ -1,3 +1,6 @@
+#Action application/x-hg-php53 /cgi-sys/php53
+#AddHandler application/x-hg-php53 .php
+
 ## Uncomment (remove # ONLY NOT ##) line below if installed in folder and add folder name after /
 ## Example: Script is installed in /public_html/short/ then it should be: Rewritebase /short
 ## Then the files below should be (add slash to all): /index.php?action=$1
