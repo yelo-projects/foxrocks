@@ -381,7 +381,7 @@ class Short extends App{
 		Main::video($url->url);
 
 		// Get User info
-		if($url->userid!=0 && $user = $this->db->get(array("count"=>"id,banned,media,splash_opt,pro,expiration","table"=>"user"),array("id"=>$url->userid),array("limit"=>1))){			
+		if($url->userid!=0 && $user = $this->db->get(array("count"=>"id,auth,auth_id,email,username,banned,media,splash_opt,pro,expiration","table"=>"user"),array("id"=>$url->userid),array("limit"=>1))){			
 			// Disable URLs of user is banned
 			if($user->banned) return $this->_404();
 			// If membership expired, switch to free
@@ -410,7 +410,7 @@ class Short extends App{
 				return $this->direct($url);
 			}elseif(in_array($url->type, array("direct","frame","splash"))){
 				$fn = $url->type;
-				return $this->$fn($url);
+				return $this->$fn($url,$user);
 			}
 		}
 
@@ -497,12 +497,18 @@ class Short extends App{
 	 * Frame
 	 * @since 4.0
 	 **/
-	private function frame($url){
+	private function frame($url,$user){
 		// Inject GA code
 		if(!empty($this->config["analytic"])){					
 			Main::add("<script type='text/javascript'>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', '{$this->config["analytic"]}', '".Main::domain($this->config["url"])."');ga('send', 'pageview');</script>","custom",FALSE);
 		}					
 		if(!$this->url_framed($url->url)) return $this->direct($url);
+		if($user->auth=="facebook" && !empty($user->auth_id)){
+			$user->avatar="{$this->http}:graph.facebook.com/".$user->auth_id."/picture?type=large";
+		}else{
+			$user->avatar="{$this->http}://www.gravatar.com/avatar/".md5(trim($user->email))."?s=150";		
+		}
+		$user->isLogged = $this->logged();
 		include($this->t(__FUNCTION__));
 	}
 	/**

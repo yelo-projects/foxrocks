@@ -20,8 +20,13 @@
         background: transparent;
       }
       #frame{
-        background: #151720;
-        color: #fff;
+        position: absolute;
+        left:0;
+        bottom: 0;
+        width: 100%;
+        box-sizing:border-box;
+        margin-left:20px;
+        margin-bottom:20px;
       }
       .site-logo a{
         color: #fff;
@@ -33,6 +38,51 @@
       }
       .btn-group{
         margin: 15px 15px 0 0
+      }
+      .bubble {
+        position:relative;
+        padding:15px;
+        min-height:100%;
+        margin-left:20px;
+        margin-top: 20px;
+        color:#999;
+        background:#fdfdfd; /* default background for browsers without gradient support */
+        -webkit-border-radius:10px;
+        -moz-border-radius:10px;
+        border-radius:10px;
+        min-width: 325px;
+        min-height: 100px;
+        max-width:50%;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      }
+      .bubble:after, .bubble:before{
+        content:"";
+        position:absolute;
+        bottom:-15px; /* value = - border-top-width - border-bottom-width */
+        left:50px; /* controls horizontal position */
+        border-width:15px 15px 0; /* vary these values to change the angle of the vertex */
+        border-style:solid;
+        border-color:#fdfdfd transparent;
+        /* reduce the damage in FF3.0 */
+        display:block;
+        width:0;
+        top:16px; /* controls vertical position */
+        left:-15px; /* value = - border-left-width - border-right-width */
+        bottom:auto;
+        border-width:15px 15px 15px 0;
+        border-color:transparent #fdfdfd;
+      }
+      .bubble:before{
+        border-color:transparent rgba(0,0,0,0.1);
+        top:20px;
+        left:-15px;
+      }
+      .c-avatar, .bubble{
+        float:left;
+      }
+      .c-user{
+        color:#ccc;
+        font-size:80%;
       }
     </style>
     <!-- Required Javascript Files -->
@@ -48,28 +98,35 @@
     <![endif]-->
   </head>
   <body<?php echo Main::body_class() ?> id="body" style="overflow:hidden">
-    <section>
-      <div id="frame">
-        <div class="row">
-          <div class="col-sm-4">
-            <h1 class="site-logo"><a href="<?php echo $this->config["url"] ?>"><?php echo $this->config["title"] ?></a></h1>
-          </div>
-          <div class="col-sm-4 hidden-xs">
-            <?php echo $this->ads(468,FALSE) ?>
-          </div>
-          <div class="col-sm-4">
+    <section id="frame">
+      <div class="c-avatar"><img src="<?php echo $user->avatar ?>"></div><!-- /.avatar -->
+        <div class="bubble">
+          <div class="bubble-contents clearfix">
+            <div class="c-user clearfix">
+                <?php echo $user->username ?>
+            </div>
+            <div class="c-message">
+                <?php echo $url->description ?>
+            </div>
+            <?php if($user->isLogged){?>
+              <div class="btn-group btn-group-sm pull-left">
+                <a href='<?php echo Main::href("user/edit/{$url->id}") ?>'  target="_blank" class="btn btn-primary btn-xs"><?php echo e("Edit")?></a>
+                <a href="<?php echo Main::href()?>/<?php echo $url->alias.$url->custom ?>+" target="_blank" class="btn btn-primary btn-xs"><?php echo e("Clicks") ?></a>
+              </div>
+            <?php };?>
             <div class="btn-group btn-group-sm pull-right">
               <a href="https://www.facebook.com/sharer.php?u=<?php echo $this->user->domain ?>/<?php echo $url->alias.$url->custom ?>" class="btn btn-primary u_share" target="_blank"><?php echo e("Share") ?></a>
               <a href="https://twitter.com/share?url=<?php echo $this->user->domain ?>/<?php echo $url->alias.$url->custom ?>&amp;text=Check+out+this+url" class="btn btn-primary u_share" target="_blank"><?php echo e("Tweet") ?></a>
               <a href="<?php echo $this->config["url"] ?>/?r=<?php echo base64_encode($url->url) ?>" class="btn btn-primary"><?php echo e("Close") ?></a>
             </div>
-          </div>         
-        </div><!-- /.row -->
-      </div><!-- /#frame -->
-      <iframe id="site" src="<?php echo $url->url;?>" frameborder="0" style="border: 0; width: 100%; height: 100%" scrolling="yes"></iframe>
+          </div>
+        </div>
+      </div>
     </section>
+    <iframe id="site" src="<?php echo $url->url;?>" frameborder="0" style="border: 0; width: 100%; height: 100%" scrolling="yes"></iframe>
     <script type="text/javascript">
-       $("iframe#site").height($(document).height()-$("#frame").height());
+       $("iframe#site").height($(document).height());
+       window.location.hash = '<?php echo $url->url ?>';
     </script>
     <?php Main::enqueue('footer') ?>  
   </body>
