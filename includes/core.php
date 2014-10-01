@@ -89,7 +89,7 @@
 		$_language = Main::clean($_GET["lang"],3,TRUE);
 	}		
 	// Get Language File
-	if(isset($_language) && $_language!="en" && file_exists(ROOT."/includes/languages/".Main::clean($_language,3,TRUE).".php")) {
+	if(isset($_language) && file_exists(ROOT."/includes/languages/".Main::clean($_language,3,TRUE).".php")) {
   	include(ROOT."/includes/languages/".Main::clean($_language).".php");
   	if(isset($lang) && is_array($lang)) {
   		Main::set("lang",$lang);
