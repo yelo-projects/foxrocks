@@ -892,6 +892,7 @@ class App{
 			 * @since 4.0 
 			 **/
 			protected function shortener_option($form=FALSE){
+				$is_pro = $this->pro();
 				$html="";
 				if($this->config["multiple_domains"]){
 					$html='<select name="domain">';
@@ -903,7 +904,7 @@ class App{
 					}
 					$html.='</select>';
 				}						
-				if($this->config["frame"]=="3" && !$this->pro()){
+				if($this->config["frame"]=="3" && $is_pro){
 					$html .= '<select name="type">
 										<optgroup label="'.e('Redirection').'">
 							        <option value="direct">'.e("Direct").'</option>
@@ -912,7 +913,7 @@ class App{
 						        </optgroup>
 						      </select>';
 				}
-				if($this->logged() && $this->pro()){
+				else if($this->logged() && $is_pro){
 					$splash = $this->db->get("splash",array("userid"=>"?"),array("order"=>"date"),array($this->userid));
 					$html .= '<select name="type">
 										<optgroup label="'.e('Redirection').'">
