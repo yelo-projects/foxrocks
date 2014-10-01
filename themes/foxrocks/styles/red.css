@@ -1,0 +1,471 @@
+/*
+  Theme Name: GemPixel [Red]
+  Author: KBRmedia
+  Author URI: http://gempixel.com  
+  Version: 1.0
+  Date: 2014-03-17
+  Copyright: This theme is designed to be used only with a valid license of Premium URL Shortener and cannot be resold or reused in any other applications without prior consent from the author. You are however free to customize this theme for your own purpose. Please contact the author, if needed, to clarify.
+
+  This file and formating is used to identify each theme and provide information about the author and version. Keep the formating as clean as possible.
+*/
+body {
+  background-color: #e8e8e8;
+}
+body a {
+  color: #000000;
+}
+body a:hover {
+  color: #e6505f;
+}
+body a#back-to-top {
+  background: #000000;
+  color: #fff;
+}
+body .form-horizontal label.control-label {
+  color: #000000;
+}
+body .label-primary {
+  background: #e02336;
+}
+body .btn-primary {
+  background-color: #e02336;
+  border-color: #e02336;
+}
+body .btn-primary:hover {
+  background-color: #e3394a;
+  border-color: #e3394a;
+}
+body .btn-primary:active,
+body .btn-primary:focus {
+  background-color: #cd1d2f;
+  border-color: #cd1d2f;
+}
+body .panel-dark {
+  background: #000000;
+  color: #fff !important;
+}
+body .panel-dark h3,
+body .panel-dark p,
+body .panel-dark li {
+  color: #fff !important;
+}
+body .panel-dark .panel-heading {
+  background: #0d0d0d;
+  color: #fff !important;
+}
+body .panel-dark .panel-heading a {
+  color: #fff !important;
+  background: #e02336;
+}
+body .inline-copy {
+  background: #e02336;
+  color: #fff !important;
+  border: 1px solid #cd1d2f;
+}
+body .inline-copy:before {
+  border-right-color: #cd1d2f;
+}
+body #tooltip {
+  background: #000000;
+  color: #fff;
+}
+body .pace .pace-progress {
+  background: #e02336;
+}
+header {
+  background: #0a0a12;
+}
+header .navbar .navbar-toggle {
+  background-color: #000000;
+  color: #fff;
+}
+header .navbar .navbar-header .navbar-brand {
+  color: #fff;
+}
+header .navbar .navbar-header .navbar-brand:hover {
+  color: #e02336;
+}
+header .navbar .nav li a {
+  color: #fff;
+}
+header .navbar .nav li a:hover {
+  color: #e02336;
+}
+header .navbar .nav li a.active {
+  background-color: #e02336;
+  color: #fff;
+}
+header .navbar .nav li a.active:hover {
+  background-color: #e3394a;
+}
+section .feature {
+  color: #000000;
+}
+section .feature h2 {
+  color: #000000;
+}
+section .feature h2 small {
+  color: #262626;
+}
+section .featurette > div {
+  color: #666;
+}
+section .featurette > div .glyphicon {
+  background: #000000;
+  color: #fff;
+}
+section .featurette > div h3 {
+  color: #222;
+}
+section .promo h1 .description {
+  color: #999999;
+}
+section.dark {
+  background-color: #050505;
+  color: #fff;
+}
+section.dark h3 {
+  color: #fff !important;
+}
+section.dark .feature {
+  color: #fff;
+}
+section.dark .feature h2 {
+  color: #fff;
+}
+section.dark .feature h2 small {
+  color: #4d4d4d;
+}
+section.dark .breadcrumb {
+  background: transparent;
+}
+section.dark .breadcrumb li {
+  color: #fff;
+}
+section.dark .breadcrumb li a {
+  color: #fff;
+}
+section.light {
+  background-color: #fff;
+  color: #000000;
+}
+section.red {
+  background-color: #e22e40;
+  color: #fff;
+}
+section.red .promo h1 {
+  color: #fff;
+}
+section.red .promo h1 .description {
+  color: #ffffff;
+}
+section.blue {
+  background-color: #e02336;
+  color: #fff;
+}
+section.blue .promo h1 {
+  color: #fff;
+}
+section.blue .promo h1 .description {
+  color: #ffffff;
+}
+section.yellow {
+  background-color: #f5b632;
+  color: #fff;
+}
+section.yellow .promo h1 {
+  color: #fff;
+}
+section.yellow .promo h1 .description {
+  color: #ffffff;
+}
+section.green {
+  background-color: #1bc5a3;
+  color: #fff;
+}
+section.green .promo h1 {
+  color: #fff;
+}
+section.green .promo h1 .description {
+  color: #ffffff;
+}
+section.break {
+  border-bottom: 1px solid #eee;
+}
+section.bg {
+  background-color: transparent;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat;
+  color: #fff;
+}
+section.bg h1 {
+  text-shadow: 1px 1px 1px #000000;
+}
+section.bg h1 .description {
+  color: #fff !important;
+  opacity: 0.8;
+}
+section .sidebar {
+  background: #000000;
+}
+section .sidebar .navbar-brand {
+  color: #fff;
+}
+section .sidebar .nav-sidebar a {
+  color: #fff;
+}
+section .sidebar .nav-sidebar a:hover,
+section .sidebar .nav-sidebar a.active {
+  background: #e02336;
+}
+section .sidebar h3 {
+  color: #737373;
+}
+section .sidebar .side-stats {
+  color: #808080;
+}
+section .sidebar .side-stats span {
+  color: #fff;
+}
+section .content .main-content .toolbox {
+  background: #000000;
+  color: #fff;
+}
+section .content .url-list {
+  border-bottom: 1px solid #e6e6e6;
+}
+section .content .url-list .description {
+  color: #666;
+}
+section .content .url-list ul.toggle li a,
+section .content .url-list ul.toggle li span {
+  color: #888;
+}
+section .content .url-list ul.toggle li .dropdown {
+  background: #e02336;
+}
+section .content .url-list ul.toggle li .dropdown a {
+  color: #fff;
+}
+section .content .url-list ul.toggle li:hover > a {
+  color: #e02336;
+}
+section .content .url-list ul.toggle li:hover > a.drop {
+  background: #e02336;
+  color: #fff;
+}
+section .content .url-list .url-info .short-url {
+  color: #808080;
+}
+section .content .url-list .url-info .short-url a {
+  color: #808080;
+}
+section .content .url-list .url-info .info {
+  color: #808080;
+}
+section .content.bundles.list-group a.active {
+  color: #e02336;
+}
+section .content.bundles.list-group p {
+  color: #999;
+}
+section .content.bundles.list-group p a {
+  color: #555;
+}
+section .content #widgets ul li {
+  color: #555;
+  border-bottom: 1px solid #eee;
+}
+section .content #widgets ul li.new_item {
+  background: #eee;
+}
+section .content #widgets ul li a {
+  color: #e02336;
+}
+section .content #widgets ul li span {
+  color: #999;
+}
+section .content .panel h3 {
+  color: #999;
+}
+section .content p {
+  color: #777;
+}
+section .centered hr {
+  border-top: 1px solid #1a1a1a;
+}
+section .centered h3 {
+  color: #fff;
+}
+section .centered .site_logo {
+  background: transparent;
+}
+section .centered .site_logo a {
+  color: #000000;
+}
+section .centered.form form.live_form {
+  background: #000000;
+  color: #fff;
+}
+section .centered.form label a {
+  color: #e02336;
+}
+section h3 {
+  color: #999;
+}
+section .social {
+  border-bottom: 1px solid #2B2F40;
+}
+section .is404 h3 {
+  text-transform: uppercase;
+  color: #000000;
+}
+section .splash .thumb img {
+  border: 1px solid #000;
+}
+section .splash h2 {
+  color: #555;
+}
+section .splash p.description {
+  color: #666;
+}
+section .splash p.disclaimer {
+  color: #aaa;
+}
+section .media .info {
+  border-bottom: 1px solid #e0e0e0;
+}
+section .media .info h3 {
+  color: #000000;
+}
+section .stats-page .thumb img {
+  border: 1px solid #ccc;
+}
+section .stats-page .url-info h2 {
+  color: #4d4d4d;
+}
+footer .languages .langs {
+  background: #0d0d0d;
+}
+footer .languages .langs a {
+  color: #fff !important;
+}
+footer a:hover,
+footer a.active {
+  background-color: #000000;
+  color: #fff;
+}
+#main-form {
+  background: #ffffff;
+}
+#main-form select {
+  color: #000;
+  margin-top: 10px;
+}
+#main-form .main-form {
+  border-bottom: 1px solid #e6e6e6;
+}
+#main-form .main-form .input-group-addon {
+  border-color: #e6e6e6;
+  color: #000000;
+}
+#main-form .main-form .main-input {
+  background: #000000;
+  color: #fff;
+  transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  -ms-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+}
+#main-form .main-form .main-input.error,
+#main-form .main-form .main-input.error:focus {
+  color: #e22e40;
+}
+#main-form .main-form .main-input:focus {
+  color: #fff;
+}
+#main-form .main-form .main-input:hover {
+  color: #e02336;
+}
+#main-form .main-form .main-textarea {
+  background-color: #000000;
+  color: #fff;
+}
+#main-form .main-options .chosen-container .chosen-single {
+  background: #e02336;
+  color: #fff;
+}
+#main-form .main-advanced {
+  background: #0d0d0d;
+  color: #fff;
+}
+#main-form .main-advanced h3 {
+  color: #fff;
+}
+#main-form .main-advanced p {
+  color: #8c8c8c;
+}
+#main-form .main-advanced input {
+  color: #0d0d0d;
+}
+ul.form_opt li.text-label {
+  color: #000000;
+}
+ul.form_opt li.text-label small {
+  color: #777;
+}
+ul.form_opt li a {
+  background: #000000;
+  color: #fff;
+}
+ul.form_opt li a:hover {
+  background: #e6505f;
+}
+ul.form_opt li a.current {
+  background: #e02336;
+}
+#modal-shadow {
+  background: #0d0d0d;
+  background: rgba(0, 0, 0, 0.5);
+}
+#modal-alert {
+  background: #fff;
+  color: #222;
+}
+#modal-alert .title {
+  background: #000000;
+  color: #fff;
+}
+.flat .plan {
+  background: #e02336;
+}
+.flat .plan:hover {
+  background: #e6505f;
+}
+.flat .plan li {
+  color: #fff;
+}
+.flat .plan li.plan-name {
+  color: #fff;
+  background: #000000;
+  border-top: 0;
+}
+.flat .plan li > strong {
+  color: #000000;
+}
+.flat .plan li.plan-action {
+  border-top: 0;
+}
+.flat .plan.featured li.plan-name {
+  background: #000000;
+}
+.flat .plan.featured:hover li.plan-name {
+  background: #000000;
+}
+.flat .plan.featured li.plan-price {
+  background: #000000;
+}
+.flat .plan.featured li.plan-price strong {
+  color: #fff;
+}

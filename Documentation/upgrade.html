@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html xml:lang="en" lang="en">
+<head>
+    <title>Premium URL Shortener - Documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0" />
+	<link rel="stylesheet" href="asset/style.css" />       
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->	
+</head>
+<body id="main">	
+	<header>
+		<h1>Premium URL Shortener <span>A Premium URL shortener by <a href="http://gempixel.com">KBRmedia</a></span></h1>
+	</header>
+<section>
+	<div class="side">
+		<h2>Table of Content</h2>
+		<ul>
+			<li><a href="#v42">Upgrading to 4.2</a></li>
+			<li><a href="#v41">Upgrading to 4.1</a></li>
+			<li><a href="#v40">Upgrading to 4.0</a></li>
+			<li><a href="#v31">Upgrading to 3.1</a></li>	
+			<li><a href="#v301">Upgrading to 3.0.1</a></li>				
+			<li><a href="#v3">Upgrading to 3.0</a></li>	
+			<li><a href="#v21">Upgrading to 2.1</a></li>					
+			<li><a href="#v201">Upgrading to 2.0.1</a></li>		
+			<li><a href="#v2">Upgrading to 2.0</a></li>			
+			<li><a href="#v183">Upgrading to 1.8.3 or earlier</a></li>
+			<li><a href="#log">Change Log</a></li>
+			<li><a href="#main">Back to Top</a></li>		
+		</ul>
+	</div>
+
+<div class="content">
+	<h2 id="v42">Upgrading to 4.2</h2>
+	<div class="inner">
+		<p>
+			Version 4.2 is another major update that includes many new features and improvements. There is a new clean theme called "CleanPixel" that can be activated at any time via the admin panel. There is also a new feature that allows you to offer all premium features for free. Google connect has been updated to use the latest API. A couple of bugs were fixed and performance was improved. Finally Google Analytics was removed to many issues. It will remain this way until a better method is found. Simply follow the instructions below to update to the latest version. If you want to upload on a file-by-file basis (not recommended), I suggest you don't update it because many files were updated/modified.
+		</p>
+			<ol>
+				<li>Backup your files and your database</li>
+				<li>Delete all files from your server</li>
+				<li>Upload new files to your server</li>
+				<li>Open the file includes/config_sample.php and fill the database info, security key (use the old one), timezone and public token (a random hash because it is publicly&nbsp;visible then rename that to config.php</li>
+				<li>Run the file updater.php</li>
+				<li>Once the update is completed, you should be able to use the new features</li>
+			</ol>		
+	</div>	
+	<h2 id="v41">Upgrading to 4.1</h2>
+	<div class="inner">
+		<p>Some bugs were fixed in version 4.1 and some small additions were made. The easiest and safest way to upgrade from 4.0 is to overwrite everything except config.php, updater.php and installer.php however if you have made some changes you may upload only following files:		
+		</p>
+		<ol>
+			<li>admin/system/
+				<ul>
+					<li>settings.php</li>
+					<li>user.php</li>
+					<li>urls.php</li>
+				</ul>
+			</li>
+			<li>includes/
+				<ul>
+					<li>Admin.class.php</li>
+					<li>App.class.php</li>
+					<li>core.php</li>
+					<li>Short.class.php</li>
+					<li>User.class.php</li>
+					<li>Main.class.php</li>
+				</ul>
+			</li>
+			<li>static/application.js</li>
+			<li>themes/default/
+				<ul>
+					<li>index.php</li>
+					<li>media.php</li>
+					<li>style.css</li>
+					<li>user.php</li>
+					<li>components/shortener.php</li>					
+				</ul>
+			</li>
+		</ol>
+	</div>
+	<h2 id="v40">Upgrading to 4.0</h2>	
+	<div class="inner">
+		<p>There are many new additions in version 4.0 both in the database and core features for this reason it is highly recommended to make a clean installation. Please note that <strong>you are not required to update if you are perfectly happy with current version</strong>. You can still upgrade you current version however some features like the recent activities will not work properly because the database has been optimized.The major change has been in the stats table. This was done to simplify the retrieval of data thus all old clicks will not be updated and will miss some information.</p>
+
+		<h3>Instructions</h3>
+
+		<ol>
+			<li>Backup your files and your database</li>
+			<li>Delete all files from your server</li>
+			<li>Upload new files to your server</li>
+			<li>Open the file includes/config_sample.php and fill the database info, security key (use the old one), timezone and public token (a random hash because it is publicly&nbsp;visible then rename that to config.php</li>
+			<li>Run the file updater.php</li>
+			<li>Once the update is completed, you should be able to use the new features</li>
+		</ol>
+		<p class="notice">If you are updating from 3.0 please run update3.php FIRST located in the same folder as this file. If you are updating from version 2.X, run update2.php then update3.php then the new updater.php</p>
+	</div>
+</div>		
+<div class="content">
+	<h2 id="v31">Upgrading to 3.1</h2>	
+	<div class="inner">
+		Some improvements and small additions have been made throughout. Please replace the list of files below:
+		<ul>
+			<li>admin/
+				<ol>
+					<li>static/dashboard.js</li>
+					<li>system/settings.php</li>
+					<li>system/editor.php</li>
+				</ol>
+			</li>		
+			<li>includes/
+				<ol>
+					<li>Admin.class.php</li>
+					<li>App.class.php</li>
+					<li>Short.class.php</li>
+					<li>Main.class.php</li>
+					<li>core.php</li>
+				</ol>
+			</li>
+			<li>static/
+				<ol>
+					<li>application.js</li>
+					<li>bookmarklet.js</li>
+					<li>Add new js/ folder</li>
+				</ol>
+			</li>
+			<li>themes/default/
+				<ol>
+					<li>style.css</li>
+					<li>user.php</li>
+					<li>index.php</li>
+					<li>stats.php</li>
+					<li>screenshot.jpg</li>
+				</ol>
+			</li>
+			<li>/
+				<ol>
+					<li>analytics.php</li>
+				</ol>
+			</li>
+		</ul>	
+	</div>
+</div>	
+<div class="content">
+	<h2 id="v301">Upgrading to 3.0.1</h2>	
+	<div class="inner">
+		An important bug was fixed in the includes/Admin.class.php which deleted all URLs instead of inactive ones. The bookmarklet was also updated in /static.
+<pre>
+	1. Replace includes/Admin.class.php
+	2. Replace includes/Database.class.php
+	3. Replace static/bookmarklet.js
+	4. Replace themes/default/footer.php
+</pre>		
+	</div>
+</div>
+<div class="content">
+	<h2 id="v3">Upgrading to 3.0</h2>
+	<div class="inner">
+		Many files have been updated in this version therefore it is strongly recommended to upload everything. As always make sure to backup everything (database + files) first. View change-log below, for a complete list of additions.
+<pre>
+	1. Backup and Download all files
+	2. Upload new files
+	3. In includes/config.php (you existing one), add  <i> "secret_key" => "",</i> right before <i>"debug"=>0,</i>
+		 3.1 DO NOT FILL THE SECRET KEY ABOVE, UNLESS YOU ARE DOING A NEW INSTALLATION.
+	4. Run Updater.php	
+	5. Update new features in the admin panel
+</pre>
+		<strong>Note:</strong> Those who have already upgraded to 3.0 and experience some issues, please redownload the package from codecanyon and replace the following file: updater.php, App.class.php, Short.class.php, core.php, themes/default/user.php. Run the updater.php to fix DB.
+	</div>
+</div>		
+<div class="content">
+	<h2 id="v201">Upgrading to 2.0.1</h2>
+	<div class="inner">
+		These have been fixed: There was an issue with updater where it didn't add the column 'username' in the database.  An issue in the admin panel, where additon of an apostrophe caused an error. An small issue in themes/default/login.php that didn't send the password.
+	</div>
+</div>		
+<div class="content">
+	<h2 id="v183">Upgrading to 2.0</h2>
+	<div class="inner">
+		Version 2.0 has been completely rewritten with maintainability, performance and customization in mind. Therefore to successfully upgrade to version 2.0, please do each of the following (failing to do one might crash the application and causes errors). If something goes, wrong please send me an email from my codecanyon profile including as much details as possible on the issue and an ftp access, if necessary. FYI,there is a complete change log below for this new version.
+		<h3>Upgrading instructions</h3>
+		<ol>
+				<li>Download to your computer a FULL backup of both your database and files. This is very important in case something goes wrong.</li>
+				<li>DELETE ALL FILES related to the previous version of the shortener.</li>
+				<li>Upload and extract the new main.zip to your server.</li>
+				<li>In <code>includes/</code> find <strong>config_sample.php</strong> and rename it to <strong>config.php</strong></li>
+				<li>Open config.php and fill in your database info along with your Google analytics (exactly like the previous version).</li>
+				<li>Go to your site at http://YOURSITE/updater.php and follow instructions.</li>
+				<li>After running the updater, the updater will attempt to delete itself, just make sure that it has been deleted.</li>
+				<li>Finally, delete install.php and go to your homepage and enjoy the new awesome features.</li>
+		</ol>
+	</div>
+</div>		
+<div class="content">
+	<h2 id="v183">Upgrading to 1.8.3</h2>
+	<div class="inner">
+		Updated twitter connect to work with the new API. All you need to do is to replace everything in <code>/connect</code> folder by the new files you get from the new zip file.
+	</div>
+</div>	
+<div class="content">
+	<h2 id="v182">Upgrading to 1.8.2</h2>
+		<div class="inner">
+			In this version, a small issue was fixed to prevent users or bots from shortening URLs of the site where the shortener is installed. Moreover, there was also an addition to prevent users from abusing clicks. Now each time a user clicks on a link, no matter how any times the browser is refreshed, the number of clicks will not be updated for 5 mins from the first click. This number can be easily changed according to your preference: Open Core.php and find <code>define('Click_Interval','5');</code> and replace "5" by the number of <strong>minutes</strong> to wait before taking into account the click from the SAME USER. In Short.class.php the function <code>isBot</code> was added at the end and the function <code>update</code> was updated with two new piece of code.
+		</div>
+	</div>		
+<div class="content">		
+	<h2 id="v181">Upgrading to 1.8.1</h2>
+		<div class="inner">
+			A small bug preventing users to delete their URLs was fixed in User.class.php. This is the only file affected. You can either replace this file or correct the error your self.
+			<p>To correct it yourself, open User.class.php and go line 317 where you will see the following code:</p>			
+			<pre>$query="DELETE FROM {$this->config["prefix"]}url WHERE id=:id AND uid=:uid";</pre>
+			Just replace <b>uid=</b> by userid= and this will fix the issue.
+
+			You also have to open core.php and update the version to 1.8.1 or you can just replace it by the new one.
+		</div>
+	</div>		
+	<div class="content">
+	<h2 id="v18">Upgrading to 1.8</h2>
+		<div class="inner">
+			Version 1.8 is a major update that affects almost all core files including some template files. Please note that if you have done any modifications on the previous versions, this update will likely require you to overwrite those files. However, if you decide to continue and update the script, make sure to backup your existing version and download it to your computer.
+			<h3>List of new Features</h3>
+			<ul>
+				<li>Built-in Tracking - Option in Admin Panel</li>
+				<li>Multiple Domain - Option in Admin Panel</li>
+				<li>Bulk Shortening</li>
+				<li>Add/Edit/View-URLs of users as admin</li>
+				<li>Solvemedia Captcha - includes/Solvemedia.php to add your keys</li>
+				<li>PHPMailer - Config.php to enable it: Works with your gmail account</li>
+				<li>Welcome Email</li>
+				<li>QR Code upon Shortening - Option in Admin Panel</li>
+				<li>In-script Update Notification - Option in Admin Panel</li>
+				<li>And much more...</li>
+			</ul>
+			<h3>Instruction</h3>
+			<ol>
+				<li><strong>Back up your old files and download them to your computer.</strong></li>
+				<li>Unzip the new <code>main.zip</code> to your server</li>
+				<li>DELETE <code>install.php</code> from your server</li>
+				<li>Open <code>includes/config_sample.php</code> and fill in your database and reCaptcha, Facebook info, Twitter Info and Google safe browsing.</li>
+				<li>Delete your old <code>config.php</code> and rename <code>config_sample.php</code> to <code>config.php</code>.</li>
+				<li>Run the update at <code>http://YOUSITE.com/admin/updater.php</code>.</li>
+				<li>If you made changes to the template, you can safely reupload your template files. But you have to change something things in them. You can check the list of files that are affected by this update at the end this document under "Change Log".
+				</li>	
+			</ol>				
+		</div>
+	</div>		
+	<div class="content">
+	<h2 id="v172">Upgrading to 1.7.2</h2>
+		<div class="inner">
+			Some issues that occurred in version 1.7.1 have been fixed. Only three files are affected. 
+			<h3>Files to replace</h3>
+			<ol>
+				<li>includes/<b>User.class.php</b></li>
+				<li>includes/<b>core.php</b></li>
+				<li><b>redirect.php</b></li>
+			</ol>	
+			If you don't want to replace these files, you can simply fix them yourself. Assuming that you have version 1.7.1.
+			<h3>User.class.php - Fixes url delete issue</h3>
+			<ol>
+				<li>Go to line 304 and you will see this $uid=$id[0];</b></li>
+				<li>Replace it by this $uid=$uid[0];</b></li>
+			</ol>
+			<h3>core.php - Fixes current version</h3>
+			<ol>
+				<li>Go to line 3 and you will see this define('_VERSION', '1.7');</b></li>
+				<li>replace it by define('_VERSION', '1.7.2');</b></li>
+			</ol>	
+			<h3>redirect.php - Fixes password redirection issue</h3>
+			<ol>
+				<li>Go to <b>line 51 </b>and you will see this window.location = \"{$url}\";</b></li>
+				<li>replace $url by $url[1]</b></li>
+			</ol>
+			</div>
+	</div>	
+	<div class="content">												
+	<h2 id="v171">Upgrading to 1.7.1</h2>
+		<div class="inner">
+			Version 1.7.1 doesn't include new features, but fixes a major security issue. I strongly recommend that you upgrade to version 1.7.1 immediately.  All you need to do is to replace the following files. Please backup your existing files, if you have modified them.
+
+			<h3>Files to replace</h3>
+			<ol>
+				<li>includes/<b>User.class.php</b></li>
+				<li>includes/<b>Admin.class.php</b></li>
+				<li>includes/<b>Short.class.php</b></li>
+				<li><b>user.php</b></li>
+				<li><b>stat.php</b></li>
+			</ol>			
+		</div>
+	</div>
+	<div class="content">
+		<h2 id="v17">Upgrading to 1.7</h2>
+		<div class="inner">
+			Version 1.7 is a major update, therefore all files were affected. Several additions and improvements have been done to the script. The script is now much-more social-friendly. Once you share the short URL or any URL of your site, you will the thumbnail, the title and the description of that page. For the short URLs, you will see the target URL's info. Also there has an addition of a chart for the user account page + "my top urls". A bug preventing successful Facebook registration was fixed. Google safe browsing was added to prevent spam. The database is not affected by this update, so no need to run update. Also update files are now located in Documentation/Updates/, in case you need them. Finally, in the admin panel at bottom of the page, you will notice a link along the current version of the script. Clicking on that link will redirect you to a page where you can see if there is a new update or not.
+
+
+			<h3>Instructions</h3>
+			<ol>
+				<li><strong>Back up your old files and download them to your computer.</strong></li>
+				<li>Unzip the new <code>main.zip</code> to your server</li>
+				<li>DELETE <code>install.php</code> from your server</li>
+				<li>Open <code>includes/config_sample.php</code> and fill in your database and reCaptcha, Facebook info, Twitter Info and Google safe browsing.</li>
+				<li>Delete your old <code>config.php</code> and rename <code>config_sample.php</code> to <code>config.php</code>.</li>
+			</ol>			
+		</div>
+	</div>
+	<div class="content">
+		<h2 id="v161">Upgrading to 1.6.1</h2>
+		<div class="inner">
+			Version 1.6. is minor update that affects only three files "User.class.php", "Short.class.php", "core.php" and "template/header.php". You only have to replace these three files and that is it. A small bug was fixed in User.class.php, and the thumbnail feature was added to header.php. An ability to detect and not allow inappropriate alias was added in Short.class.php	
+		</div>
+	</div>		
+	<div class="content">
+		<h2 id="v16">Upgrading to 1.6</h2>
+		<div class="inner">
+			Version 1.6 is another major update, therefore all files were affected. Several additions and improvements have been done to the script. The script now includes twitter connect, password protect and several other improvements.
+
+			Due to this being a major update, I strongly recommend that you overwrite all of your files because due addition like twitter connect, the coding had to be restructured, especially authentication.
+
+			<h3>Instructions</h3>
+			<ol>
+				<li><strong>Back up your old files and download them to your computer.</strong></li>
+				<li>Unzip the new <code>main.zip</code> to your server</li>
+				<li>DELETE <code>install.php</code> from your server</li>
+				<li>Open <code>includes/config_sample.php</code> and fill in your database and reCaptcha, Facebook info and Twitter Info</li>
+				<li>Delete your old <code>config.php</code> and rename <code>config_sample.php</code> to <code>config.php</code>.</li>
+				<li>Point your browser to <code>http://YOURSUTE/update.php</code> - this will update your database by adding new settings: You must do this or the script will not work!.</li>
+				<li>Delete <code>update.php</code></li>
+			</ol>			
+
+		</div>
+	</div>		
+	<div class="content">
+		<h2 id="v15">Upgrading to 1.5</h2>
+		<div class="inner">
+			Version 1.5 is another major update, therefore all files were affected. Several additions and improvements have been done to the script. The script now includes an advanced stats system (Google Analytics) and several other improvements.
+
+			<h3>Instructions</h3>
+			<ol>
+				<li><strong>Back up your old files and download them to your computer.</strong></li>
+				<li>Unzip the new <code>main.zip</code> to your server</li>
+				<li>DELETE <code>install.php</code> from your server</li>
+				<li>Open <code>includes/config_sample.php</code> and fill in your database and reCaptcha and Facebook info</li>
+				<li>Delete your old <code>config.php</code> and rename <code>config_sample.php</code> to <code>config.php</code>.</li>
+				<li>Point your browser to <code>http://YOURSUTE/update.php</code> - this will update your database by adding new settings.</li>
+				<li>Delete <code>update.php</code></li>
+			</ol>			
+
+		</div>
+	</div>			
+	<div class="content">
+		<h2 id="v14">Upgrading to 1.4</h2>
+		<div class="inner">
+			Version 1.4 is minor update. Only admin files have been edited. Additions: Delete a custom page, added pagination to user page, added a button to remove all inactive URLs.
+
+			<h3>Instructions</h3>
+			<ol>
+				<li>You can only upload the index.php in the "admin" folder and Admin.class.php in includes folder. Other files were not affected. A small addition was also made to front-end style.css</li>
+			</ol>			
+
+		</div>
+	</div>		
+	<div class="content">
+		<h2 id="v13">Upgrading to 1.3</h2>
+		<div class="inner">
+			Version 1.3 is another major update, therefore all files were affected. Several additions and improvements have been done to the script. The script now integrates Facebook Connect. Moreover, the overall performance of the script has been improved. It is now 20% faster than the previous version. To upgrade to the latest version, please follow these steps:
+
+			<h3>Instructions</h3>
+			<ol>
+				<li><strong>Back up your old files and download them to your computer.</strong></li>
+				<li>Unzip the new <code>main.zip</code> to your server</li>
+				<li>DELETE <code>install.php</code> from your server</li>
+				<li>Open <code>includes/config_sample.php</code> and fill in your database and reCaptcha and Facebook info</li>
+				<li>Delete your old <code>config.php</code> and rename <code>config_sample.php</code> to <code>config.php</code>.</li>
+				<li>Point your browser to <code>http://YOURSUTE/update.php</code> - this will update your database by adding new settings.</li>
+				<li>Delete <code>update.php</code></li>
+			</ol>			
+
+		</div>
+	</div>		
+	<div class="content">
+		<h2 id="v12">Upgrading to 1.2</h2>
+		<div class="inner">
+			In version 1.2, there has been some minor changes so only some files are affected. Here is a list: footer.php, index.php, Short.class.php, User.class.php, and the language file. Moreover, there has been an addition of a bookmarklet. The code for it is located in footer.php
+		</div>
+	</div>	
+	<div class="content">
+		<h2 id="v11">Upgrading to 1.1</h2>
+		<div class="inner">
+			An addition of a core feature requires that you replace all files with new ones. <strong>PLEASE BACKUP YOUR OLD FILES FIRST IN CASE SOMETHING GOES WRONG!</strong>. The translation file uses a PHP function that has to wrap all texts, thus modification of all files were required. If you have edited one or several files, PLEASE BACKUP FIRST so you apply the change back again.
+
+			<h3>Instructions</h3>
+			<ol>
+				<li><strong>Back up your old files and download them to your computer.</strong></li>
+				<li>Unzip the new <code>main.zip</code> to your server</li>
+				<li>DELETE <code>install.php</code> from your server</li>
+				<li>Open <code>includes/config_sample.php</code> and fill in your database and reCaptcha info</li>
+				<li>Delete your old <code>config.php</code> and rename <code>config_sample.php</code> to <code>config.php</code>.</li>
+				<li>Your website is fully upgraded to version 1.1</li>
+			</ol>
+		</div>
+	</div>
+	<div class="content">
+		<h2 id="log">Change Log</h2>
+
+		<div class="inner">
+			<h3>Version 4.2 Major Update</h3>
+<pre>
++ Fixed Bugs
++ Improved performance
++ Added new theme
++ Added Delete Anonymous URLs in the admin panel
++ Added Disable Pro Module
++ Added Public URL List
++ Updated Google Connect
+</pre>				
+			<h3>Version 4.1 Minor Update</h3>
+<pre>
++ Bugs &amp; typos fixed
++ Added code helper in admin panel
++ Added last payments
++ Added renew membership notice
++ Fixed anonymous history
++ Added new language strings in the lang_sample.php
+</pre>	
+		  <h3>Version 4.0 Major Update</h3>			
+<pre>
++ New Template built on Bootstrap 3.1
++ New UI
++ Premium Features and PayPal integration
++ Redesigned Admin panel
+   + Redesigned Theme Editor
+   + Comprehensive Stats
+   + Much More
++ Advanced User Dashboard with live stats
++ And much much more...
+</pre>					
+		  <h3>Version 3.1 Minor Update</h3>			
+<pre>
+Version 3.0
++ Admin 
+	+ Modified text and fixed some bugs
+	+ Fixed editor bugs
++ User
+	+ Added Shortener form
+	+ Ads slots
+	+ Fixed some bugs				
++ Script
+	+ Add new security features
+	+ New analytics design/data
+	+ Updated bookmarklet
+	+ Some CSS bugs fixed
+</pre>				
+		  <h3>Version 3.0 Major Update</h3>			
+<pre>
+Version 3.0
++ Admin 
+	+ Added more in documentation (admin/system/help.php)	
+	+ Added more settings (admin/system/settings.php)	
+		+ Logo
+		+ Paypal Email
+		+ Ad Removal Cost (USD)
+		+ Custom Splash Page Cost (USD)
+		+ Maintenance Tools
+	+ Improved Performance
++ User
+	+ Ad removal via paypal
+	+ Unlock custom splash page via paypal
+	+ Enable media gateway
+	+ Archived URLs
+	+ Set default domain name
+	+ Export URLs
+	- Removed Graph (not much useful)				
++ Script
+	+ New Template
+	+ In-Page Bookmarklet (Beta)		
+	+ GeoIP Database (must be downloaded separately)
+	+ Improved Performance
+</pre>					
+		  <h3>Version 2.1 Minor Update</h3>			
+<pre>
+Version 2.1
++ Admin 
+		+ Added more in documentation (admin/system/help.php)	
+		+ Changed text in settings page (admin/system/settings.php)	
+		+ Added delete inactive Links in url page (admin/system/urls.php)	 
+    + Added Select all in url page (admin/system/urls.php)	    
+    + Added Select all code in dashboard.js (admin/static/dashboard.js)	
++ includes/Short.class.php FULL
++ includes/App.class.php FULL
++ includes/Main.class.php FULL
++ includes/core.php
++ Index.php FULL	
+</pre>		  
+			<h3>Version 2.0.1 Minor Update</h3>			
+<pre>
++ Admin Panel issue fixed (includes/Admin.class.php)
++ Forgot password field issue
++ Updater
+</pre>			
+			<h3>Version 2.0 - A super major update like you have never seen before</h3>
+<pre>
++ Completely redesigned - Both front-end and Back-end
++ Theme system + Theme editor (much like wordpress)
++ Translation Manager
+  + Create new Translation
+  + Edit/Delete existing Translation
++ Export list of users as CSV
++ New method to translate pages (view in-app documentation)
++ New Settings and options in admin panel
+	+ All options moved from PHP to settings panel
+	+ New additions
+		+ Default language
+		+ Domain + Keyword Blacklisting
+		+ Private service
+		+ and much more
++ In-App Quick Documentation		
++ New User panel
+	+	User can edit URLs
+	+ Create and Manage Bundles
+	+ Manage Public Profile
+	+ Manage Public URLs
+	+ Search for URLs
+	+ Addition of username
++ Much more URL validation process
++ Advanced advertisement system (ability to disable ads per URL or user)	
++ QR Code generator (just add /qr at the end of the short URL to generate the QR)
++ Self Thumbnail generator (depends on external API though "mshots" or "pagepeeker")
++ Anonymous User History (homepage only)
++ Redesigned stats page
+	+ Three chart modes (24h, 7 days, 30 days)
+	- Browser and OS stats for consistency (will come back in the future)
++ Better API with support for JSONP (developers no longer depend on PHP)	
+	+ Text format addition (just add &amp;format=text)
+	+ Developers can now shorten using a custom alias (just add &amp;custom=SOMETHING)
+++ So much more that I can't remember	
+</pre>			
+
+			<h3>Version 1.8.2 - Minor Update</h3>
+			Only two files are affected by this update: "includes/Short.class.php" and "includes/Core.php". You just need to replace them and that is it.
+
+			<h3>Version 1.8 - Major Update</h3>
+			Several files are affected by this update. Although I recommend you to replace ALL FILES, but if you wish you can replace these files:
+			<ul>
+				<li>ALL FILES IN INCLUDES/ FOLDER - Very Important</li>
+				<li>ajax.php</li>
+				<li>Google.Analytics is now renamed as analytics.php</li>
+				<li>.htaccess</li>
+				<li>redirect.php</li>
+				<li>index.php</li>
+				<li>Some new styles were added in style.css</li>
+				<li>New functions in static/js/global.js</li>
+				<li>ALL FILES IN ADMIN FOLDER - IMPORTANT</li>
+				<li>Bug fixed in template/header.php</li>
+				<li>New elements added in template/index.php</li>
+				<li>New elements added in template/register.php</li>
+				<li>New Language Strings added in includes/lang/fr.php and includes/lang/lang_sample.php</li>
+
+			</ul>
+			<h3>Version 1.7 - A Major Update</h3>
+			<h4>Social Integration</h4>
+			Now this script is much more social-friendly. Every URLs has its own thumbnail, title and description so they look really good on Facebook.
+			<h4>Google Safe Browsing</h4>
+			Now you are even more safe with the addition of google safe browsing api. This will check every url submitted against the list provided by google. If the the url is know to be malicious, it will not be allowed. To enable this, simply register for a key (check index.html) and add it in config.php. To disable it, remove the api key from config.php
+
+			<h4>User Charts + Stats</h4>
+			Now on user account page, users can view a chart showing the number of urls they have shortened and their top urls.
+
+			<h4>Add ability to add a prefix to your database tables.</h4>
+			<h4>Facebook Connect Fix</h4>
+			<h4>Splash Page Responsiveness</h4>
+			<h4>Minor Bugs fixed</h4>
+			<h3>Version 1.6 - A Minor Update</h3>
+			<h4>Twitter Connect</h4>
+			In this version, twitter connect has been added. Now users can login using twitter the same way they use facebook. You must enable twitter connect for it to appear and function. You can do that on the admin panel. You must register your website on Twiter.com. You can find the instruction in "index.html".
+
+			<h4>Splash Page Added</h4>
+			You now have the option to activate the splash page. This shows the thumbnail of the website and a message warning them about its content. You can edit the splash page by editing "template/splash.php".
+
+			<h4>Password Protect Feature</h4>
+			Users can now add a password to their URL, hence making them private. If a URL is password protected then redirection AND statistics will REQUIRE the password. Otherwise they will not be shown or can be accessed.
+
+			<h4>Cookie-Based Login</h4>
+			Now users can decide to stay logged-in for up to 5 days by simply clicking "Remember Me".
+
+			<h4>Even more Advanced API</h4>
+			You can now call the call the stats of a short URL by simply using the following format:
+			<pre>http://YOURSITE/api/?short=SHORTURL</pre>
+
+			Stats for URLs marked as private or with a password will not be shown.
+
+			<h4>Edit URLs</h4>
+			The admin (ONLY) can edit URLs by simply clicking "edit" next to the URL.
+
+			<h4>Users can now delete their URLs</h4>
+			<h4>Admin can now filter URLs under "Manage URLs" tab</h4>
+			<h4>CSS/jQuery Bug Fixed</h4>
+
+			<h4>Added ftp-shortening support</h4>
+			<h4>New Translation Text Added (View Sample lang file)</h4>
+
+			<h3>Version 1.5 - A Minor Update</h3>	
+			<h4>Advanced Stats</h4>
+			Uses the powerful analytics service, Google Analytics to provide with advanced stats. The stats of all URLs shortened by registered users are now private.
+
+			<h4>Accepts URLs without http://</h4>
+			Accepts URLs without http://.
+
+			<h4>Admin Panel Improvements</h4>
+			Some improvements have been done to the admin panel.
+
+			<h3>Version 1.4 - A Minor Update</h3>
+			<h4>Admin Panel Improved and Addition of "clean up" button</h4>			
+			You can clean up inactive URLS by simply clicking the red button.
+
+			<h3>Version 1.3 - A Major Update</h3>
+			<h4>New Facebook Connect</h4>
+			Users can now login using their facebook account. Please <a href="index.html#facebook">click here to configure facebook connect</a>.
+			
+			<h4>API now supports unshortening of short URLS</h4>
+			Users can now easily unshorten urls.
+
+			<h4>Improvement of Performance</h4>
+			Performance has been improved. Now the script runs upto 20% faster than the previous version. Due to this, all files were updated.
+
+			<h4>Updated Template Files</h4>
+			Template files are now all located in <code>template/</code>. No need edit the main files anymore.
+			
+			<h4>Updated Template Files</h4>
+
+			<h3>Version 1.2 - A Minor Update</h3>
+			<h4>New Bookmartlet Feature Added</h4>
+			Users can now drag the bookmarklet link to their bookmark bar and easily shorten all URLs.
+			
+			<h4>Bugs and Typos</h4>
+			Some bugs and typos have been fixed in several files.
+			
+			<h4>New Translation Feature Added</h4>
+			You can now easily translate most of the text of your website by simply editing a file. Please note that due to this being a core update, all of the major files have been updated.
+
+			<h4>Maintenance Option Improved</h4>
+			Now you can login as Admin and navigate the site freely while anonymous and registered users will see the maintenance page everywhere <b>except redirection (i.e. short URLs will still work)</b>. This will give you time to edit your site. You need to first set the option of maintenance to "Offline" then if you want to login simple go to <code>http://YOURSITE/user/login</code> and login as Admin. Then you can freely access all pages while others cannot.
+
+			<h4>Fixed some bugs in Style.css and Theme CSS files</h4>
+			Fixed some CSS bugs in style.css and other theme css files.
+		</div>		
+	</div>						
+</section>
+<footer>
+	2012 &copy; <a href="http://codecanyon.net/user/KBRmedia">KBRmedia</a> - All Rights Reserved	
+</footer>
+	<script src="asset/jquery.min.js"></script>	
+	<script type="text/javascript" src="asset/global.js"></script>
+</body>
+</html>	

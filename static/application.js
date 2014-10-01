@@ -1,0 +1,251 @@
+/**
+ *  Premium URL Shortener jQuery Application
+ *  Copyright @KBRmedia - All rights Reserved 
+ */
+$(function() {
+ /**
+  * Hide advanced option + Toggle on click
+  */
+  $(".slideup").slideUp();
+  $(".advanced").click(function(e){
+    e.preventDefault();
+    $(".main-advanced").slideToggle();
+  });  
+  /**
+   * Add & Delete Location Field
+   */
+  var html=$(".country").html();
+  $(".add_geo").click(function(){
+    if($(this).attr("data-home")){
+      $(".geo-input").append("<div class='row'>"+html+"</div><p><a href='#' class='btn btn-danger btn-xs delete_geo' data-holder='div.row'>"+lang.del+"</a></p>");
+    }else{
+      $('#geo').append("<div class='form-group'>"+html+"</div><p><a href='#' class='btn btn-danger btn-xs delete_geo'>"+lang.del+"</a></p>");      
+    }
+    update_sidebar();
+    $("select").chosen({disable_search_threshold: 5});
+    return false;
+  }); 
+  $(document).on('click',".delete_geo",function(e){
+    e.preventDefault();
+    var t=$(this);
+    $(this).parent('p').prev($("this").attr("data-holder")).slideUp('slow',function(){
+      $(this).remove();
+      t.parent('p').remove();
+    });
+    return false;
+  });   
+  /**
+   * Call Neo
+   **/
+  $("select").chosen({disable_search_threshold: 5});  
+  /**
+   * Custom Radio Box
+   **/
+  $(document).on('click','.form_opt li a',function(e) {
+    
+    var href=$(this).attr('href');
+    var name = $(this).parent("li").parent("ul").attr("data-id");
+    var to = $(this).attr("data-value");
+    var callback=$(this).parent("li").parent("ul").attr("data-callback");
+    if(href=="#" || href=="") e.preventDefault();
+
+    $("input#" + name).val(to);
+    $(this).parent("li").parent("ul").find("a").removeClass("current");
+    $(this).addClass("current");
+    if(callback !==undefined){
+      window[callback](to);
+    }
+  });
+  /**
+   * Show forgot password form
+   **/
+   $(document).on('click','#forgot-password',function(){
+      show_forgot_password();
+   });
+   if(location.hash=="#forgot"){
+      show_forgot_password();
+   }   
+   $(document).on('click',"div.alert",function(){
+    $(this).fadeOut();
+   }); 
+  /**
+   * Open share window
+   */
+   $(document).on('click',"a.u_share",function(e){
+    e.preventDefault();
+    window.open($(this).attr("href"), '', 'left=50%, top=100, width=550, height=450, personalbar=0, toolbar=0, scrollbars=1, resizable=1')    
+   });  
+  /**
+   * Back to top
+   */
+  $(window).scroll(function(){   
+    if(window.pageYOffset>300){
+      $("#back-to-top").fadeIn('slow');
+    }else{
+      $("#back-to-top").fadeOut('slow');
+    }
+  });
+  $("a#back-to-top,.scroll").smoothscroll(); 
+  //
+  $(document).on('click',".clear-search",function(e){
+    e.preventDefault();
+    $(".return-ajax").slideUp('medium',function(){
+      $(this).html('');
+      $("#search").find("input[type=text]").val('');
+      $(".url-container").slideDown('medium');
+    });
+  });  
+  // Select All
+  $(document).on('click','#selectall',function(e) {
+    e.preventDefault();   
+    $('input').iCheck('toggle');            
+  }); 
+  /**
+   * Delete All
+   */
+  $(document).on('click','#deleteall',function(e) {
+    e.preventDefault();
+    $('form#delete-all-urls').submit();
+  });  
+  /**
+   * Active Menu
+   **/
+  var path = location.pathname.substring(1);  
+  if (path) {
+    $('.nav-sidebar a').removeClass("active");
+    $('.nav-sidebar a[href$="' + path + '"]').addClass('active'); 
+  }   
+  // Alert Modal
+  $(document).on("click",".delete",function(e){
+    e.preventDefault();
+    $(this).modal();    
+  });
+  /**
+   * OnClick Select
+   **/
+   $(".onclick-select").on('click',function(){
+    $(this).select();
+   })
+  /**
+   * Show Languages
+   **/
+  $("#show-language").click(function(e){
+    e.preventDefault();
+    $(".langs").fadeToggle();
+  });
+
+  $('select.filter').chosen().change(function(e,v){
+      var href=document.URL.split("?")[0].split("#")[0];
+      window.location=href+"?"+$(this).attr("data-key")+"="+v.selected;
+  });   
+  $(".tooltip").tooltip();
+  // Load all
+  loadall();
+  // Charts
+  if($(".chart").length > 0){
+    function showTooltip(x, y, c) {
+      $('<div id="tooltip" class="chart-tip">' + c + '</div>').css( {
+          position: 'absolute',
+          display: 'none',
+          top: y - 40,
+          left: x - 30,
+          color: '#fff',
+          opacity: 0.80
+      }).appendTo("body").fadeIn(200);
+    }
+
+    var previousPoint = null;
+    var previousSeries = null;
+    $(".chart").bind("plothover", function (event, pos, item) {
+      if(item){
+        if(previousSeries != item.seriesIndex || previousPoint != item.dataIndex){
+          previousPoint = item.dataIndex;
+          previousSeries = item.seriesIndex; 
+          $("#tooltip").remove();
+          function format_date(time){
+            var d=new Date(time);
+            var list=new Array();
+            list[0]="January";list[1]="February";list[2]="March";list[3]="April";list[4]="May";list[5]="June";list[6]="July";list[7]="August";list[8]="September";list[9]="October";list[10]="November";list[11]="December";       
+            var month = list[d.getMonth()];
+            return d.getDate()+" "+ month +", "+d.getFullYear();
+          }
+          showTooltip(item.pageX, item.pageY, item.datapoint[1]+" Clicks");          
+        }                      
+      }
+    });     
+  }  
+}); // End jQuery Ready
+/**
+ * iCheck Load Function
+ **/
+function icheck_reload(){
+  if(typeof icheck !== "undefined"){
+    var c=icheck;
+  }else{
+    if($("input[type=checkbox],input[type=radio]").attr("data-class")){
+      var c="-"+$("input[type=checkbox],input[type=radio]").attr("data-class");
+    }else{
+      var c="";
+    }    
+  }
+  $('input').iCheck({
+    checkboxClass: 'icheckbox_flat'+c,
+    radioClass: 'iradio_flat'+c
+  }); 
+}
+
+/**
+ * Show Password Field Function
+ **/
+function show_forgot_password(){
+  $("#login_form").slideUp("slow");
+  $("#forgot_form").slideDown("slow");  
+  return false  
+}
+/**
+ * Custom Radio Box Callback
+ **/
+function update_sidebar(){
+  $(window).load(function(){
+    // Sidebar Height
+    if(!is_mobile() && !is_tablet()){
+      var h1=$(document).height()-110;
+      $(".sidebar").height(h1); 
+    }    
+  })
+}
+/**
+ * Load zClip
+ **/
+function zClipload(){
+  $('.copy').each(function() {
+    $(this).zclip({
+      path:appurl+'/static/js/zclip.swf',
+      copy: $(this).attr("data-value"),
+      afterCopy:function(){
+        $(this).text(lang.copied);
+      }   
+    });
+  });
+}
+/**
+ * Load Some Functions
+ **/
+function loadall(){
+  zClipload();
+  icheck_reload();
+  update_sidebar();
+}
+// Switch Forms
+window.form_switch= function(e){
+  if(e == 0){
+    $("#multiple").slideUp();
+    $("#single").slideDown();
+    $(".advanced").fadeIn();    
+  }else{
+    $("#multiple").slideDown();
+    $("#single").slideUp();  
+    $(".main-advanced").slideUp();
+    $(".advanced").fadeOut();
+  }
+}
