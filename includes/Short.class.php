@@ -504,7 +504,7 @@ class Short extends App{
 		}					
 		if(!$this->url_framed($url->url)) return $this->direct($url);
 		if($user->auth=="facebook" && !empty($user->auth_id)){
-			$user->avatar="{$this->http}:graph.facebook.com/".$user->auth_id."/picture?type=large";
+			$user->avatar="{$this->http}://graph.facebook.com/".$user->auth_id."/picture?type=large";
 		}else{
 			$user->avatar="{$this->http}://www.gravatar.com/avatar/".md5(trim($user->email))."?s=150";		
 		}

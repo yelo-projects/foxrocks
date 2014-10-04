@@ -108,7 +108,7 @@ class App{
 				if(empty($this->user->domain)) $this->user->domain=$this->config["url"];
 				if($this->user->admin) $this->admin=TRUE;
 				if($user->auth=="facebook" && !empty($user->auth_id)){
-					$this->user->avatar="{$this->http}:graph.facebook.com/".$user->auth_id."/picture?type=large";
+					$this->user->avatar="{$this->http}://graph.facebook.com/".$user->auth_id."/picture?type=large";
 				}else{
 					$this->user->avatar="{$this->http}://www.gravatar.com/avatar/".md5(trim($this->user->email))."?s=150";		
 				}				
@@ -508,7 +508,7 @@ class App{
 		// Format user info
 		if(empty($user->domain)) $user->domain=$this->config["url"];
 		if($user->auth=="facebook" && !empty($user->auth_id)){
-			$user->avatar="{$this->http}:graph.facebook.com/".$user->auth_id."/picture?type=large";
+			$user->avatar="{$this->http}://graph.facebook.com/".$user->auth_id."/picture?type=large";
 		}else{
 			$user->avatar="{$this->http}://www.gravatar.com/avatar/".md5(trim($user->email))."?s=150";		
 		}
@@ -907,8 +907,8 @@ class App{
 				if($this->config["frame"]=="3" && $is_pro){
 					$html .= '<select name="type">
 										<optgroup label="'.e('Redirection').'">
+									<option value="frame" selected="selected">'.e("Frame").'</option>
 							        <option value="direct">'.e("Direct").'</option>
-							        <option value="frame">'.e("Frame").'</option>
 							        <option value="splash">'.e("Splash").'</option>
 						        </optgroup>
 						      </select>';
@@ -917,8 +917,8 @@ class App{
 					$splash = $this->db->get("splash",array("userid"=>"?"),array("order"=>"date"),array($this->userid));
 					$html .= '<select name="type">
 										<optgroup label="'.e('Redirection').'">
+									<option value="frame" selected="selected">'.e("Frame").'</option>
 							        <option value="direct">'.e("Direct").'</option>
-							        <option value="frame">'.e("Frame").'</option>
 							        <option value="splash">'.e("Splash").'</option>
 						        </optgroup>';
 					if($splash){
@@ -929,6 +929,8 @@ class App{
 						$html.="</optgroup>";
 					}
 					$html .= '</select>';					
+				}else{
+					$html.='<input type="hidden" name="type" value="direct"/>';
 				}
 				return $html;
 			}
